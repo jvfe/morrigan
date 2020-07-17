@@ -11,7 +11,9 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = []
+requirements = [
+    'Click>=7.0',
+]
 
 setup_requirements = ['pytest-runner']
 
@@ -24,6 +26,7 @@ dev_requirements += requirements
 setup(
     author="João Vitor F. Cavalcante",
     author_email='jvfe@ufrn.edu.br',
+    python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -35,6 +38,7 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     description="CLI tool for graph file conversion",
+    entry_points={'console_scripts': ['morrigan=morrigan.cli:main',],},
     install_requires=requirements,
     extras_require={'dev': dev_requirements},
     license="BSD license",
