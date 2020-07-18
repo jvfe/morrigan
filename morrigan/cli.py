@@ -1,17 +1,13 @@
 """Console script for morrigan."""
 import sys
 import click
+from morrigan.morrigan import g_inp, g_out
 
 
 @click.command()
-def main(args=None):
+@click.option("-f", "--file")
+@click.option("-o", "--output")
+def main(file, output):
     """Console script for morrigan."""
-    click.echo(
-        "Replace this message by putting your code into " "morrigan.cli.main"
-    )
-    click.echo("See click documentation at https://click.palletsprojects.com/")
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    G = g_inp(file)
+    return g_out(G, output)
